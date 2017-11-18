@@ -1,13 +1,13 @@
-package Quiz;
+package Model;
 
-public class Numeric {
+public class TrueFalse {
 
 	private int ans;
 	private String ques;
 	private int quizID;
 	private int index;   //primary key
 	
-	public Numeric(int a, int b, String c, int d){
+	public TrueFalse(int a, int b, String c, int d){
 		quizID=a;
 		index=b;
 		ques=c;

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="615.0" prefWidth="767.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="Controller.QuizMaking">
+  <!-- TODO Add Nodes -->
+  <children>
+    <TextField fx:id="title" alignment="CENTER" layoutX="224.0" layoutY="120.0" prefHeight="46.0" prefWidth="171.0" text="Title" />
+    <TextField fx:id="desc" alignment="CENTER" layoutX="138.0" layoutY="211.0" prefHeight="83.0" prefWidth="342.0" text="Description" />
+    <Button id="begin" fx:id="Done" layoutX="285.0" layoutY="507.0" mnemonicParsing="false" onAction="#Finish" text="Done" />
+    <Button fx:id="TF" layoutX="97.0" layoutY="403.0" mnemonicParsing="false" onAction="#TF" prefHeight="35.0" prefWidth="81.0" text="True False" />
+    <Button fx:id="Numeric" layoutX="269.0" layoutY="403.0" mnemonicParsing="false" onAction="#Num" prefHeight="35.0" prefWidth="81.0" text="Numeric" />
+    <Button fx:id="MCQ" layoutX="444.0" layoutY="403.0" mnemonicParsing="false" onAction="#MCQ" prefHeight="35.0" prefWidth="72.0" text="MCQ" />
+  </children>
+</AnchorPane>

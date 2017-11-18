@@ -1,4 +1,4 @@
-package Quiz;
+package Model;
 
 public class MCQ {
 

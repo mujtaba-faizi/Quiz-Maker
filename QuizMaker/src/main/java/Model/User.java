@@ -1,10 +1,9 @@
-package Quiz;
+package Model;
 
 public class User {
 private String username;
 private String password;
 private String role;
-private int score;
 
 public User(String a, String b, String c){
 	username=a;
