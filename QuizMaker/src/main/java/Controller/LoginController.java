@@ -13,7 +13,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.Label;
 
 public class LoginController {
 	@FXML
@@ -31,6 +30,7 @@ public class LoginController {
 	       role.setItems(ROLE);	
 	    }
 	
+	@FXML
 	public void Login(ActionEvent event) throws Exception{
      
 		String a=username.getText();
@@ -44,7 +44,7 @@ public class LoginController {
 		
 		if(role.getValue().equals("Student")) {
 
-            Parent root = FXMLLoader.load(getClass().getResource("QuizTaking.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/fxml/QuizTaking.fxml"));
             
             Scene scene = new Scene(root,600,600);
             primaryStage.setScene(scene);
@@ -52,7 +52,7 @@ public class LoginController {
 		}
 		
 		else if(role.getValue()=="Instructor") {
-            Parent root = FXMLLoader.load(getClass().getResource("QuizMaking.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/fxml/QuizMaking.fxml"));
             
             Scene scene = new Scene(root,600,600);
             primaryStage.setScene(scene);

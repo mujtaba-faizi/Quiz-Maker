@@ -35,7 +35,7 @@ public class QuizMaking {
 	    public void TF(ActionEvent event) throws Exception{
 	    	Score+=5;    //considering question is of 5 marks
 	    	Stage primaryStage=new Stage();
-	    	   Parent root = FXMLLoader.load(getClass().getResource("TrueFalseQues.fxml"));
+	    	   Parent root = FXMLLoader.load(getClass().getResource("/fxml/TrueFalseQues.fxml"));
 	     	    Scene scene = new Scene(root);
 	            primaryStage.setScene(scene);
 	            primaryStage.show();
@@ -44,7 +44,7 @@ public class QuizMaking {
 	    public void MCQ(ActionEvent event) throws Exception{
 	    	Score+=5;
 	    	Stage primaryStage=new Stage();
-	    	   Parent root = FXMLLoader.load(getClass().getResource("MCQQues.fxml"));
+	    	   Parent root = FXMLLoader.load(getClass().getResource("/fxml/MCQQues.fxml"));
 	     	    Scene scene = new Scene(root);
 	            primaryStage.setScene(scene);
 	            primaryStage.show();
@@ -53,7 +53,7 @@ public class QuizMaking {
 	    public void Num(ActionEvent event) throws Exception{
 	    	Score+=5;
 	    	Stage primaryStage=new Stage();
-	    	   Parent root = FXMLLoader.load(getClass().getResource("NumericQues.fxml"));
+	    	   Parent root = FXMLLoader.load(getClass().getResource("/fxml/NumericQues.fxml"));
 	     	    Scene scene = new Scene(root);
 	            primaryStage.setScene(scene);
 	            primaryStage.show();
@@ -62,7 +62,7 @@ public class QuizMaking {
 	    
     public void Finish(ActionEvent event) throws Exception{
     	String a=title.getText();
-    	String b=title.getText();
+    	String b=desc.getText();
         Quiz alpha=new Quiz(0,Score,a,b);     //I have to extract the last element's id in the database nd increment it by 1 nd store it here
         
         Stage stage = (Stage) title.getScene().getWindow();

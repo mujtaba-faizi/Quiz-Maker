@@ -8,25 +8,66 @@ public class Quiz {
 	private String desc;
 	
 	public Quiz(int a, int b,String c, String d){
-		totalScore=b;
-		ID=a;
-		title=c;
-		desc=d;
+		setTotalScore(b);
+		setID(a);
+		setTitle(c);
+		setDesc(d);
 	}
-	
-	public int getScore() {
+
+	/**
+	 * @return the totalScore
+	 */
+	public int getTotalScore() {
 		return totalScore;
 	}
-	
+
+	/**
+	 * @param totalScore the totalScore to set
+	 */
+	public void setTotalScore(int totalScore) {
+		this.totalScore = totalScore;
+	}
+
+	/**
+	 * @return the desc
+	 */
+	public String getDesc() {
+		return desc;
+	}
+
+	/**
+	 * @param desc the desc to set
+	 */
+	public void setDesc(String desc) {
+		this.desc = desc;
+	}
+
+	/**
+	 * @return the title
+	 */
+	public String getTitle() {
+		return title;
+	}
+
+	/**
+	 * @param title the title to set
+	 */
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	/**
+	 * @return the iD
+	 */
 	public int getID() {
 		return ID;
 	}
-	
-	public String gettitle() {
-		return title;
+
+	/**
+	 * @param iD the iD to set
+	 */
+	public void setID(int iD) {
+		ID = iD;
 	}
 	
-	public String getdesc() {
-		return desc;
-	}
 }

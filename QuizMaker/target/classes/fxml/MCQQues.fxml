@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.collections.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="566.0" prefWidth="699.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="Controller.MCQController">
+  <!-- TODO Add Nodes -->
+  <children>
+    <Label layoutX="317.0" layoutY="60.0" text="MCQs">
+      <font>
+        <Font size="24.0" />
+      </font>
+    </Label>
+    <Label layoutX="63.0" layoutY="122.0" text="Question" />
+    <Label layoutX="221.0" layoutY="381.0" text="Answer" />
+    <Label layoutX="193.0" layoutY="188.0" text="1" />
+    <Label layoutX="193.0" layoutY="224.0" text="2" />
+    <Label layoutX="193.0" layoutY="256.0" text="3" />
+    <Label layoutX="193.0" layoutY="295.0" text="4" />
+    <TextField id="" fx:id="MCQ1" layoutX="241.0" layoutY="182.0" prefWidth="200.0" />
+    <TextField fx:id="MCQ2" layoutX="241.0" layoutY="221.0" prefWidth="200.0" />
+    <TextField fx:id="MCQ3" layoutX="241.0" layoutY="256.0" prefWidth="200.0" />
+    <TextField fx:id="MCQ4" layoutX="241.0" layoutY="295.0" prefWidth="200.0" />
+    <TextField fx:id="ques" layoutX="132.0" layoutY="116.0" prefHeight="32.0" prefWidth="529.0" />
+    <ChoiceBox fx:id="ans" layoutX="291.0" layoutY="379.0">
+      <items>
+        <FXCollections fx:factory="observableArrayList">
+          <String fx:value="Item 1" />
+          <String fx:value="Item 2" />
+          <String fx:value="Item 3" />
+        </FXCollections>
+      </items>
+    </ChoiceBox>
+    <Button id="button" fx:id="end" layoutX="289.0" layoutY="457.0" mnemonicParsing="false" onAction="#Finish" text="End" />
+  </children>
+</AnchorPane>
