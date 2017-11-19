@@ -2,13 +2,13 @@ package Model;
 
 public class Numeric {
 
-	private int ans;
+	private String ans;
 	private String ques;
 	private int quizID;
 	private int index;   //primary key
 	private final String type="Numeric";
 	
-	public Numeric(int a, int b, String c, int d){
+	public Numeric(int a, int b, String c, String d){
 		setQuizID(a);
 		setIndex(b);
 		setQues(c);
@@ -18,15 +18,15 @@ public class Numeric {
 	/**
 	 * @return the ans
 	 */
-	public int getAns() {
+	public String getAns() {
 		return ans;
 	}
 
 	/**
-	 * @param ans the ans to set
+	 * @param d the ans to set
 	 */
-	public void setAns(int ans) {
-		this.ans = ans;
+	public void setAns(String d) {
+		this.ans = d;
 	}
 
 	/**
