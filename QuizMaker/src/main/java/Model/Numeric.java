@@ -1,20 +1,31 @@
 package Model;
 
+import javax.persistence.*;
+
+@Entity
 public class Numeric {
 
 	private String ans;
 	private String ques;
-	private int quizID;
+	@GeneratedValue(strategy = GenerationType.TABLE)
+	@Id
 	private int index;   //primary key
-	private final String type="Numeric";
+	@JoinColumn(name = "quiz_id")
+	private Quiz quiz;  //act as foreign key for table "Quiz"
 	
-	public Numeric(int a, int b, String c, String d){
-		setQuizID(a);
-		setIndex(b);
-		setQues(c);
-		setAns(d);
+	/**
+	 * @return the quiz
+	 */
+	public Quiz getQuiz() {
+		return quiz;
 	}
 
+	/**
+	 * @param quizID the quizID to set
+	 */
+	public void setQuiz(Quiz quiz) {
+		this.quiz = quiz;
+	}
 	/**
 	 * @return the ans
 	 */
@@ -44,20 +55,6 @@ public class Numeric {
 	}
 
 	/**
-	 * @return the quizID
-	 */
-	public int getQuizID() {
-		return quizID;
-	}
-
-	/**
-	 * @param quizID the quizID to set
-	 */
-	public void setQuizID(int quizID) {
-		this.quizID = quizID;
-	}
-
-	/**
 	 * @return the index
 	 */
 	public int getIndex() {
@@ -69,13 +66,6 @@ public class Numeric {
 	 */
 	public void setIndex(int index) {
 		this.index = index;
-	}
-
-	/**
-	 * @return the type
-	 */
-	public String getType() {
-		return type;
 	}
 	
 }

@@ -1,18 +1,19 @@
 package Model;
 
+import javax.persistence.*;
+
+@Entity
 public class Quiz {
 
 	private int totalScore;  //assuming each question carries 5 score
+	@GeneratedValue(strategy = GenerationType.TABLE)
+	@Id
 	private int ID;          //primary key
 	private String title;
 	private String desc;
-	
-	public Quiz(int a, int b,String c, String d){
-		setTotalScore(b);
-		setID(a);
-		setTitle(c);
-		setDesc(d);
-	}
+	@ManyToOne
+	@JoinColumn(name = "user_id")
+	private User user;
 
 	/**
 	 * @return the totalScore
@@ -68,6 +69,14 @@ public class Quiz {
 	 */
 	public void setID(int iD) {
 		ID = iD;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
 	}
 	
 }

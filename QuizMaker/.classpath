@@ -22,5 +22,7 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="F:/Softwares/New folder/Hibernate/hibernate-core-5.2.9.Final.jar"/>
+	<classpathentry kind="lib" path="F:/Softwares/New folder/Hibernate/Sir Fahads dependencies/mysql-connector-java-6.0.6.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

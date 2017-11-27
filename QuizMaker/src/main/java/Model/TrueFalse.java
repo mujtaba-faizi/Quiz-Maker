@@ -1,26 +1,18 @@
 package Model;
 
+import javax.persistence.*;
+
+@Entity
 public class TrueFalse {
 
 	private String ans;
 	private String ques;
-	private int quizID;
+	@JoinColumn(name = "quiz_id")
+	private Quiz quiz;
+	@GeneratedValue(strategy = GenerationType.TABLE)
+	@Id
 	private int index;   //primary key
-	private final String type="TF";
 	
-	public TrueFalse(int a, int b, String c, String d){
-		setQuizID(a);
-		setIndex(b);
-		setQues(c);
-		setAns(d);
-	}
-
-	/**
-	 * @return the type
-	 */
-	public String getType() {
-		return type;
-	}
 
 	/**
 	 * @return the index
@@ -37,17 +29,17 @@ public class TrueFalse {
 	}
 
 	/**
-	 * @return the quizID
+	 * @return the quiz
 	 */
-	public int getQuizID() {
-		return quizID;
+	public Quiz getQuiz() {
+		return quiz;
 	}
 
 	/**
 	 * @param quizID the quizID to set
 	 */
-	public void setQuizID(int quizID) {
-		this.quizID = quizID;
+	public void setQuiz(Quiz quiz) {
+		this.quiz = quiz;
 	}
 
 	/**

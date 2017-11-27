@@ -1,6 +1,6 @@
 package Controller;
 
-import Model.Quiz;
+import Bo.QuizBo;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -13,7 +13,7 @@ import javafx.stage.Stage;
 
 public class QuizMaking {
 	private static int Score;
-	
+
 	 @FXML
 	    private Button Done;
 
@@ -63,8 +63,11 @@ public class QuizMaking {
     public void Finish(ActionEvent event) throws Exception{
     	String a=title.getText();
     	String b=desc.getText();
-        Quiz alpha=new Quiz(0,Score,a,b);     //I have to extract the last element's id in the database nd increment it by 1 nd store it here
-        
+    	
+    	QuizBo quizhandler=new QuizBo();
+    	quizhandler.addQuiz(a, b, Score);
+    	quizhandler.saveQuiz();
+     
         Stage stage = (Stage) title.getScene().getWindow();
         stage.close();		
 	}

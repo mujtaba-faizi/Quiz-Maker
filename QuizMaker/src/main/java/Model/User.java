@@ -1,15 +1,16 @@
 package Model;
 
+import javax.persistence.*;
+
+@Entity
 public class User {
 private String username;
 private String password;
 private String role;
+@GeneratedValue(strategy = GenerationType.TABLE)
+@Id
+private int id;   //primary key
 
-public User(String a, String b, String c){
-	setUsername(a);
-	setPassword(b);
-	setRole(c);
-}
 
 /**
  * @return the username
@@ -51,6 +52,20 @@ public String getRole() {
  */
 public void setRole(String role) {
 	this.role = role;
+}
+
+/**
+ * @return the id
+ */
+public int getId() {
+	return id;
+}
+
+/**
+ * @param id the id to set
+ */
+public void setId(int id) {
+	this.id = id;
 }
 
 }

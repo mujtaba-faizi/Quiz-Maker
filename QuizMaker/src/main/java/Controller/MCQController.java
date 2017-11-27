@@ -1,6 +1,6 @@
 package Controller;
 
-import Model.MCQ;
+import Bo.MCQBo;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -48,7 +48,9 @@ public class MCQController {
     	String e=MCQ3.getText();
     	String f=MCQ4.getText();
 
-        MCQ alpha=new MCQ(0,0,a,b,c,d,e,f);     //I have to extract the last element's id in the database nd increment it by 1 nd store it here(same for quizID)
+        MCQBo alpha=new MCQBo();     //I have to extract the last element's id in the database nd increment it by 1 nd store it here(same for quizID)
+        alpha.addMCQ(a, b, c, d, e, f);
+        alpha.saveMCQ();
         
         Stage stage = (Stage) end.getScene().getWindow();
         stage.close();		

@@ -1,6 +1,6 @@
 package Controller;
 
-import Model.TrueFalse;
+import Bo.TrueFalseBo;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -31,7 +31,9 @@ public class TFController {
     	String a=ques.getText();
     	String b=ans.getValue();
 
-        TrueFalse alpha=new TrueFalse(0,0,a,b);     //I have to extract the last element's id in the database nd increment it by 1 nd store it here(same for quizID)
+        TrueFalseBo alpha=new TrueFalseBo(); 
+        alpha.addTF(a, b);
+        alpha.saveTF();
         
         Stage stage = (Stage) ques.getScene().getWindow();
         stage.close();		

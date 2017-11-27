@@ -1,29 +1,35 @@
 package Model;
 
-public class MCQ {
+import javax.persistence.*;
 
+@Entity
+public class MCQ{
+	
 	private String ans;
 	private String ques;
 	private String MCQ1;
 	private String MCQ2;
 	private String MCQ3;
 	private String MCQ4;
-	private int quizID;  //act as foreign key for table "Quiz"
+	@JoinColumn(name = "quiz_id")
+	private Quiz quiz;  //act as foreign key for table "Quiz"
+	@GeneratedValue(strategy = GenerationType.TABLE)
+	@Id
 	private int index;   //primary key
-	private final String type="MCQ";  //which type of question
 	
-	public MCQ(int g, int h,String a, String b, String c, String d, String e, String f) {
-		setQuizID(g);
-		setIndex(h);
-		setQues(a);
-		setAns(b);
-		setMCQ1(c);
-		setMCQ2(d);
-		setMCQ3(e);
-		setMCQ4(f);
+	/**
+	 * @return the quiz
+	 */
+	public Quiz getQuiz() {
+		return quiz;
 	}
 
-
+	/**
+	 * @param quizID the quizID to set
+	 */
+	public void setQuiz(Quiz quiz) {
+		this.quiz = quiz;
+	}
 	/**
 	 * @return the mCQ1
 	 */
@@ -71,15 +77,6 @@ public class MCQ {
 		this.ans = b;
 	}
 
-
-	/**
-	 * @return the type
-	 */
-	public String getType() {
-		return type;
-	}
-
-
 	/**
 	 * @return the mCQ2
 	 */
@@ -109,22 +106,6 @@ public class MCQ {
 	 */
 	public void setMCQ3(String mCQ3) {
 		MCQ3 = mCQ3;
-	}
-
-
-	/**
-	 * @return the quizID
-	 */
-	public int getQuizID() {
-		return quizID;
-	}
-
-
-	/**
-	 * @param quizID the quizID to set
-	 */
-	public void setQuizID(int quizID) {
-		this.quizID = quizID;
 	}
 
 

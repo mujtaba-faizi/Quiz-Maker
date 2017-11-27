@@ -1,7 +1,6 @@
 package Controller;
 
-import Model.User;
-
+import Bo.UserBo;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -15,6 +14,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 
 public class LoginController {
+	
 	@FXML
 	private TextField username;
 	@FXML
@@ -36,14 +36,17 @@ public class LoginController {
 		String a=username.getText();
 		String b=pass.getText();
 		String c=role.getValue();
-		User Faizi=new User(a,b,c);
-		
+       
         Stage stage = (Stage) role.getScene().getWindow();
         stage.close();
 		Stage primaryStage=new Stage();
 		
+		UserBo userhandler=new UserBo();   //persisting user information
+		userhandler.addUser(a, b, c);
+		userhandler.saveUser();
+		
 		if(role.getValue().equals("Student")) {
-
+		 
             Parent root = FXMLLoader.load(getClass().getResource("/fxml/QuizTaking.fxml"));
             
             Scene scene = new Scene(root,600,600);
@@ -52,6 +55,7 @@ public class LoginController {
 		}
 		
 		else if(role.getValue()=="Instructor") {
+			
             Parent root = FXMLLoader.load(getClass().getResource("/fxml/QuizMaking.fxml"));
             
             Scene scene = new Scene(root,600,600);

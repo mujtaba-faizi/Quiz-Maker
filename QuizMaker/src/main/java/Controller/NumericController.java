@@ -1,6 +1,6 @@
 package Controller;
 
-import Model.Numeric;
+import Bo.NumericBo;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -21,7 +21,9 @@ public class NumericController {
     	String a=ques.getText();
     	String b=ans.getText();
 
-        Numeric alpha=new Numeric(0,0,a,b);     //I have to extract the last element's id in the database nd increment it by 1 nd store it here(same for quizID)
+        NumericBo alpha=new NumericBo();     //I have to extract the last element's id in the database nd increment it by 1 nd store it here(same for quizID)
+        alpha.addNumeric(a, b);
+        alpha.saveNumeric();
         
         Stage stage = (Stage) ques.getScene().getWindow();
         stage.close();		
