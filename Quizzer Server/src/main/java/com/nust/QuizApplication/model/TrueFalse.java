@@ -7,6 +7,14 @@ import javax.persistence.*;
 public class TrueFalse extends Question{
 
 	private String ans;
+	private String ques;
+	
+    @Override
+    public String getQuestion(){return ques;}
+    @Override
+    public void setQuestion(String ques){
+        this.ques=ques;
+    }
 
 	/**
 	 * @return the ans

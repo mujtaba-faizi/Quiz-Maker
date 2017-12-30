@@ -14,7 +14,6 @@ import com.nust.QuizApplication.dao.QuestionDAO;
 import com.nust.QuizApplication.dao.TrueFalseDAO;
 import com.nust.QuizApplication.model.MCQ;
 import com.nust.QuizApplication.model.Num;
-import com.nust.QuizApplication.model.Question;
 import com.nust.QuizApplication.model.TrueFalse;
 
 @RestController
@@ -31,19 +30,9 @@ public class QuestionController {
 	
 	@Autowired 
 	QuestionDAO quesdao;
-
-    @RequestMapping(value = "/addques" ,method = RequestMethod.POST)
-    public ResponseEntity<Question> addques(@RequestBody Question ques) {
-			 int id = quesdao.save(ques);
-			 if(id>0)
-		        return new ResponseEntity<Question>(ques,HttpStatus.OK);
-			 else
-				 return new ResponseEntity<Question>(ques,HttpStatus.BAD_REQUEST);
-    }
 	
-    @RequestMapping(value = "/addmcq" ,method = RequestMethod.POST)
+    @RequestMapping(value = "/addmcqs" ,method = RequestMethod.POST)
     public ResponseEntity<MCQ> addMCQ(@RequestBody MCQ mcq) {
-
 			 String message = mcqDao.save(mcq);
 		        if(message=="Successful")
 		        	return new ResponseEntity<MCQ>(mcq,HttpStatus.OK);
@@ -53,7 +42,6 @@ public class QuestionController {
     
     @RequestMapping(value = "/addtruefalse" ,method = RequestMethod.POST)
     public ResponseEntity<TrueFalse> addTrueFalse(@RequestBody TrueFalse truefalse) {
-    	
         String message = truefalseDao.save(truefalse);
         if(message=="Successful")
         	return new ResponseEntity<TrueFalse>(truefalse,HttpStatus.OK);
@@ -63,7 +51,6 @@ public class QuestionController {
 
 	@RequestMapping(value = "/addnumeric" ,method = RequestMethod.POST)
     public ResponseEntity<Num> addNumeric(@RequestBody Num num) {
-		
         String message = numericDao.save(num);
         if(message=="Successful")
         	return new ResponseEntity<Num>(num,HttpStatus.OK);

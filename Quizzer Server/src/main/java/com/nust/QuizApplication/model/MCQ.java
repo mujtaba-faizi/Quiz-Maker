@@ -11,7 +11,14 @@ public class MCQ extends Question{
 	private String MCQ2;
 	private String MCQ3;
 	private String MCQ4;
+	private String ques;
 	
+    @Override
+    public String getQuestion(){return ques;}
+    @Override
+    public void setQuestion(String ques){
+        this.ques=ques;
+    }
 	/**
 	 * @return the mCQ1
 	 */

@@ -8,7 +8,15 @@ import javax.persistence.PrimaryKeyJoinColumn;
 public class Num extends Question{
 
 	private int ans;
-
+	private String ques;
+	
+    @Override
+    public String getQuestion(){return ques;}
+    @Override
+    public void setQuestion(String ques){
+        this.ques=ques;
+    }
+	
 	/**
 	 * @return the ans
 	 */
