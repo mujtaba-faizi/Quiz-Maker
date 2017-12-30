@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.mujtaba.quizzer.Model.Quiz;
+import com.example.mujtaba.quizzer.Model.User;
 import com.example.mujtaba.quizzer.R;
 
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
@@ -33,9 +34,12 @@ public class QuizMaking extends AppCompatActivity {
         @Override
             protected Quiz doInBackground(Void... params) {
                 try {
-
+                    int userID = getIntent().getIntExtra("userid",0);
+                    User user=new User();
+                    user.setId(userID);
                     quiz.setTitle(title.getText().toString());
                     quiz.setDescription(desc.getText().toString());
+                    quiz.setUser(user);
                     restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
                     quiz = restTemplate.postForObject(url + "/makequiz/", quiz, Quiz.class);
                     return quiz;
@@ -68,6 +72,7 @@ public class QuizMaking extends AppCompatActivity {
     public void MCQ(View v) {
         score=+5;   //add 5 more marks
         Intent i = new Intent(getBaseContext(), MCQActivity.class);
+        i.putExtra("quizid", quiz.getID());
         startActivity(i);
     }
 
@@ -86,6 +91,7 @@ public class QuizMaking extends AppCompatActivity {
     }
 
     public void Finish(View v) {
+
         new HttpRequestQuizMaking().execute();
         finish();
         //closes the current activity

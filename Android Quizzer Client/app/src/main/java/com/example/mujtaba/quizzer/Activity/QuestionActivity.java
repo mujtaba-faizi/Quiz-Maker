@@ -8,7 +8,7 @@ import android.widget.Spinner;
 import com.example.mujtaba.quizzer.R;
 
 public class QuestionActivity extends AppCompatActivity {
-
+    private int score;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

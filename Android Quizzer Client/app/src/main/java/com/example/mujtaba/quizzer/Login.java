@@ -64,11 +64,13 @@ private final String TAG="Error in logging in";
 
                 case "Student":
                     Intent i = new Intent(getBaseContext(), QuizTaking.class);
+                    i.putExtra("userid", user.getId());
                     startActivity(i);
                     break;
 
                 case "Instructor":
                     Intent j = new Intent(getBaseContext(), QuizMaking.class);
+                    j.putExtra("userid", user.getId());
                     startActivity(j);
                     break;
             }

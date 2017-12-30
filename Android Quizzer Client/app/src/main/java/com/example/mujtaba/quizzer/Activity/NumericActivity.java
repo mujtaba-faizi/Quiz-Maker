@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.mujtaba.quizzer.Model.Numeric;
+import com.example.mujtaba.quizzer.Model.Quiz;
 import com.example.mujtaba.quizzer.R;
 
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
@@ -25,6 +26,7 @@ public class NumericActivity extends AppCompatActivity {
         @Override
         protected Numeric doInBackground(Void... params) {
             try {
+
                 int answer=Integer.parseInt(ans.getText().toString());
                 num.setQuestion(ques.getText().toString());
                 num.setAns(answer);

@@ -9,7 +9,21 @@ public class User {
     private String password;
     private String role;
     private int score;
+    private int id;
 
+    /**
+     * @return the id
+     */
+    public int getId() {
+        return id;
+    }
+
+    /**
+     * @param id the id to set
+     */
+    public void setId(int id) {
+        this.id = id;
+    }
     public int getScore() {
         return score;
     }
