@@ -1,59 +1,87 @@
 package com.example.mujtaba.quizzer;
 
-import android.app.ProgressDialog;
 import android.content.Intent;
-import android.media.session.MediaSessionManager;
+import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.android.volley.AuthFailureError;
-import com.android.volley.Cache;
-import com.android.volley.Network;
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.VolleyLog;
-import com.android.volley.toolbox.BasicNetwork;
-import com.android.volley.toolbox.DiskBasedCache;
-import com.android.volley.toolbox.HurlStack;
-import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.StringRequest;
 import com.example.mujtaba.quizzer.Activity.QuizMaking;
 import com.example.mujtaba.quizzer.Activity.QuizTaking;
+import com.example.mujtaba.quizzer.Model.User;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-import org.w3c.dom.Text;
-
-import java.util.HashMap;
-import java.util.Map;
-
-import static com.android.volley.toolbox.Volley.newRequestQueue;
+import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
+import org.springframework.web.client.RestTemplate;
 
 public class Login extends AppCompatActivity {
     private Button button;
     private TextView username;
     private TextView password;
     private Spinner role;
-    private String url = "http://localhost:8080/users/signup";
-    private RequestQueue queue;
+    private String url = "http://192.168.8.102:8080/users";
+    private User user=new User();
 
-private final String TAG=this.getClass().getSimpleName();
+private final String TAG="Error in logging in";
+    RestTemplate restTemplate = new RestTemplate();
+
+    private class HttpRequestLogin extends AsyncTask<Void, Void, User> {
+        @Override
+        protected User doInBackground(Void... params) {
+            try {
+
+                user.setUsername(username.getText().toString());
+                user.setPassword(password.getText().toString());
+                switch (role.getSelectedItem().toString()) {
+
+                    case "Student":
+                        user.setRole("Student");
+                        break;
+
+                    case "Instructor":
+                        user.setRole("Instructor");
+                        break;
+                }
+                restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
+                user = restTemplate.postForObject(url+"/signup/" , user , User.class);
+                return user;
+
+            } catch (Exception e) {
+                Log.e(TAG, e.getMessage(), e);
+            }
+
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(User user) {
+
+            switch (role.getSelectedItem().toString()) {
+
+                case "Student":
+                    Intent i = new Intent(getBaseContext(), QuizTaking.class);
+                    startActivity(i);
+                    break;
+
+                case "Instructor":
+                    Intent j = new Intent(getBaseContext(), QuizMaking.class);
+                    startActivity(j);
+                    break;
+            }
+
+        }
+
+    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
         username=(TextView) findViewById(R.id.username);
         password=(TextView) findViewById(R.id.password);
         button=(Button) findViewById(R.id.button);
@@ -68,23 +96,9 @@ private final String TAG=this.getClass().getSimpleName();
         role.setAdapter(adapter);
     }
 
-    public void Quiz(View v) {   //select a new activity on the basis of role
-
-// Instantiate the cache
-        switch (role.getSelectedItem().toString()) {
-
-            case "Student":
-                Intent i = new Intent(getBaseContext(), QuizTaking.class);
-                startActivity(i);
-                break;
-
-            case "Instructor":
-                Intent j = new Intent(getBaseContext(), QuizMaking.class);
-                startActivity(j);
-                break;
-        }
-
-
+    public void Quiz(View v) {
+// send request to server
+        new HttpRequestLogin().execute();
     }
 
 

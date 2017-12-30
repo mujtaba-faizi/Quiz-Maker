@@ -7,7 +7,7 @@ import android.widget.Spinner;
 
 import com.example.mujtaba.quizzer.R;
 
-public class Question extends AppCompatActivity {
+public class QuestionActivity extends AppCompatActivity {
 
 
     @Override

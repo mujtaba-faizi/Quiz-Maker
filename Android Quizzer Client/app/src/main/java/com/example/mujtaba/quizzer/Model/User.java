@@ -8,11 +8,14 @@ public class User {
     private String username;
     private String password;
     private String role;
+    private int score;
 
-    public User(String a, String b, String c){
-        setUsername(a);
-        setPassword(b);
-        setRole(c);
+    public int getScore() {
+        return score;
+    }
+
+    public void setScore(int score) {
+        this.score = score;
     }
 
     /**

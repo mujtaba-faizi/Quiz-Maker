@@ -7,7 +7,6 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
-import android.widget.TextView;
 
 import com.example.mujtaba.quizzer.R;
 
@@ -39,7 +38,7 @@ public class QuizTaking extends AppCompatActivity {
 
     public void goto_quiz(View v){
         String text = quizzes.getSelectedItem().toString();
-        Intent i = new Intent(getBaseContext(), Question.class);
+        Intent i = new Intent(getBaseContext(), QuestionActivity.class);
       //  Intent.putExtra("location", text);
         startActivity(i);
     }

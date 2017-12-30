@@ -1,13 +1,19 @@
 package com.example.mujtaba.quizzer.Activity;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.mujtaba.quizzer.Model.Quiz;
 import com.example.mujtaba.quizzer.R;
+
+import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
+import org.springframework.web.client.RestTemplate;
 
 public class QuizMaking extends AppCompatActivity {
     private Button button1;
@@ -16,6 +22,36 @@ public class QuizMaking extends AppCompatActivity {
     private Button end;
     private TextView title;
     private TextView desc;
+    private String url = "http://192.168.8.102:8080/quizzes";
+    private Quiz quiz=new Quiz();
+    private int score;
+
+    private final String TAG="Error in logging in";
+    RestTemplate restTemplate = new RestTemplate();
+
+    private class HttpRequestQuizMaking extends AsyncTask<Void, Void, Quiz> {
+        @Override
+            protected Quiz doInBackground(Void... params) {
+                try {
+
+                    quiz.setTitle(title.getText().toString());
+                    quiz.setDescription(desc.getText().toString());
+                    restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
+                    quiz = restTemplate.postForObject(url + "/makequiz/", quiz, Quiz.class);
+                    return quiz;
+
+                } catch (Exception e) {
+                    Log.e(TAG, e.getMessage(), e);
+                }
+
+                return null;
+            }
+        @Override
+        protected void onPostExecute(Quiz quiz) {
+        }
+
+    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,23 +66,28 @@ public class QuizMaking extends AppCompatActivity {
     }
 
     public void MCQ(View v) {
-        Intent i = new Intent(getBaseContext(), MCQ.class);
+        score=+5;   //add 5 more marks
+        Intent i = new Intent(getBaseContext(), MCQActivity.class);
         startActivity(i);
     }
 
 
     public void Numeric(View v) {
-        Intent j = new Intent(getBaseContext(), Numeric.class);
+        score=+5;
+        Intent j = new Intent(getBaseContext(), NumericActivity.class);
         startActivity(j);
     }
 
 
     public void TF(View v) {
-        Intent k = new Intent(getBaseContext(), TrueFalse.class);
+        score=+5;
+        Intent k = new Intent(getBaseContext(), TrueFalseActivity.class);
         startActivity(k);
     }
 
     public void Finish(View v) {
-        finish();    //closes the current activity
+        new HttpRequestQuizMaking().execute();
+        finish();
+        //closes the current activity
     }
 }

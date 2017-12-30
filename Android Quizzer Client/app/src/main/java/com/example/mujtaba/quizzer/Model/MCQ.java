@@ -4,37 +4,27 @@ package com.example.mujtaba.quizzer.Model;
  * Created by Mujtaba on 12/17/2017.
  */
 
-public class MCQ {
+public class MCQ extends Question{
 
-    private String ans;
-    private String ques;
+    private int ans;
     private String MCQ1;
     private String MCQ2;
     private String MCQ3;
     private String MCQ4;
-    private int quizID;  //act as foreign key for table "Quiz"
-    private int index;   //primary key
-    private final String type="MCQ";  //which type of question
+    private String ques;
 
-    public MCQ(int g, int h,String a, String b, String c, String d, String e, String f) {
-        setQuizID(g);
-        setIndex(h);
-        setQues(a);
-        setAns(b);
-        setMCQ1(c);
-        setMCQ2(d);
-        setMCQ3(e);
-        setMCQ4(f);
+    @Override
+    public String getQuestion(){return ques;}
+    @Override
+    public void setQuestion(String ques){
+        this.ques=ques;
     }
-
-
     /**
      * @return the mCQ1
      */
     public String getMCQ1() {
         return MCQ1;
     }
-
 
     /**
      * @param mCQ1 the mCQ1 to set
@@ -43,27 +33,10 @@ public class MCQ {
         MCQ1 = mCQ1;
     }
 
-
-    /**
-     * @return the ques
-     */
-    public String getQues() {
-        return ques;
-    }
-
-
-    /**
-     * @param ques the ques to set
-     */
-    public void setQues(String ques) {
-        this.ques = ques;
-    }
-
-
     /**
      * @return the ans
      */
-    public String getAns() {
+    public int getAns() {
         return ans;
     }
 
@@ -71,18 +44,9 @@ public class MCQ {
     /**
      * @param b the ans to set
      */
-    public void setAns(String b) {
+    public void setAns(int b) {
         this.ans = b;
     }
-
-
-    /**
-     * @return the type
-     */
-    public String getType() {
-        return type;
-    }
-
 
     /**
      * @return the mCQ2
@@ -117,22 +81,6 @@ public class MCQ {
 
 
     /**
-     * @return the quizID
-     */
-    public int getQuizID() {
-        return quizID;
-    }
-
-
-    /**
-     * @param quizID the quizID to set
-     */
-    public void setQuizID(int quizID) {
-        this.quizID = quizID;
-    }
-
-
-    /**
      * @return the mCQ4
      */
     public String getMCQ4() {
@@ -147,21 +95,4 @@ public class MCQ {
         MCQ4 = mCQ4;
     }
 
-
-    /**
-     * @return the index
-     */
-    public int getIndex() {
-        return index;
-    }
-
-
-    /**
-     * @param index the index to set
-     */
-    public void setIndex(int index) {
-        this.index = index;
-    }
-
 }
-

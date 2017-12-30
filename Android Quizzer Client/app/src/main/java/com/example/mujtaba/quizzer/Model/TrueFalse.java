@@ -4,26 +4,18 @@ package com.example.mujtaba.quizzer.Model;
  * Created by Mujtaba on 12/17/2017.
  */
 
-public class TrueFalse {
+public class TrueFalse extends Question{
 
     private String ans;
-    private String ques;
     private int quizID;
     private int index;   //primary key
-    private final String type="TF";
+    private String ques;
 
-    public TrueFalse(int a, int b, String c, String d){
-        setQuizID(a);
-        setIndex(b);
-        setQues(c);
-        setAns(d);
-    }
-
-    /**
-     * @return the type
-     */
-    public String getType() {
-        return type;
+    @Override
+    public String getQuestion(){return ques;}
+    @Override
+    public void setQuestion(String ques){
+        this.ques=ques;
     }
 
     /**
@@ -52,20 +44,6 @@ public class TrueFalse {
      */
     public void setQuizID(int quizID) {
         this.quizID = quizID;
-    }
-
-    /**
-     * @return the ques
-     */
-    public String getQues() {
-        return ques;
-    }
-
-    /**
-     * @param ques the ques to set
-     */
-    public void setQues(String ques) {
-        this.ques = ques;
     }
 
     /**

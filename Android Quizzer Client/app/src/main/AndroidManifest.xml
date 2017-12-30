@@ -28,15 +28,15 @@
             android:name=".Activity.QuizTaking"
             android:label="Take a Quiz.." />
         <activity
-            android:name=".Activity.MCQ"
+            android:name=".Activity.MCQActivity"
             android:label="Make MCQs" />
         <activity
-            android:name=".Activity.Numeric"
+            android:name=".Activity.NumericActivity"
             android:label="Make Numeric Questions" />
         <activity
-            android:name=".Activity.TrueFalse"
+            android:name=".Activity.TrueFalseActivity"
             android:label="Make True False Questions" />
-        <activity android:name=".Activity.Question" />
+        <activity android:name=".Activity.QuestionActivity" />
         <activity
             android:name=".Activity.ShowQuestions"
             android:label="@string/title_activity_show_questions"

@@ -6,49 +6,32 @@ package com.example.mujtaba.quizzer.Model;
 
 public class Quiz {
 
-    private int totalScore;  //assuming each question carries 5 score
-    private int ID;          //primary key
+    private int marks;  //assuming each question carries 5 score
+    private int id;          //primary key
     private String title;
-    private String desc;
+    private String description;
+    private User user;
 
-    public Quiz(int a, int b,String c, String d){
-        setTotalScore(b);
-        setID(a);
-        setTitle(c);
-        setDesc(d);
+    public User getUser() {
+        return user;
     }
 
-    /**
-     * @return the totalScore
-     */
-    public int getTotalScore() {
-        return totalScore;
+
+    public int getMarks() {
+        return marks;
     }
 
-    /**
-     * @param totalScore the totalScore to set
-     */
-    public void setTotalScore(int totalScore) {
-        this.totalScore = totalScore;
+    public void setMarks(int marks) {
+        this.marks = marks;
+    }
+    public String getDescription() {
+        return description;
     }
 
-    /**
-     * @return the desc
-     */
-    public String getDesc() {
-        return desc;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    /**
-     * @param desc the desc to set
-     */
-    public void setDesc(String desc) {
-        this.desc = desc;
-    }
-
-    /**
-     * @return the title
-     */
     public String getTitle() {
         return title;
     }
@@ -64,14 +47,14 @@ public class Quiz {
      * @return the iD
      */
     public int getID() {
-        return ID;
+        return id;
     }
 
     /**
      * @param iD the iD to set
      */
     public void setID(int iD) {
-        ID = iD;
+        id = iD;
     }
 
 }

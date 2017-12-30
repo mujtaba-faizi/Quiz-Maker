@@ -8,7 +8,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.mujtaba.quizzer.Activity.Numeric">
+    tools:context="com.example.mujtaba.quizzer.Activity.NumericActivity">
 
     <EditText
         android:layout_width="wrap_content"
@@ -24,15 +24,15 @@
         android:hint="Enter Question" />
 
     <EditText
+        android:id="@+id/numans"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="number"
-        android:ems="10"
         android:layout_below="@+id/numques"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="60dp"
-        android:id="@+id/numans"
+        android:layout_marginTop="51dp"
+        android:ems="10"
         android:hint="Correct Answer"
+        android:inputType="number"
         android:textAlignment="center" />
 
     <Button
@@ -47,4 +47,5 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:onClick="End_Numeric"/>
+
 </RelativeLayout>
