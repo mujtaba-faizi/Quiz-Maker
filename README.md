@@ -1,6 +1,6 @@
 # Quizzer
 
-## Introduction:
+## Problem:
 Create a mobile app that fulfils these requirements. Start by designing a user entity, which holds atleast the username, password, role and score. The username and password will be used by the application to authenticate the user, while the role can be either an instructor or a student.
 
 Instructors after logging in, should be allowed to create a Quiz by providing a short title and description for the quiz. Once a quiz has been created, the application should then allow the user to add a question (of type multiple choice, true false or numeric). All questions will be indexed with their position editable by the instructor but not their content. For each question the instructor must add a text for the question, options (4 for MCQs, 2 for True False and none for numeric), expected correct answer, and a maximum achievable score.
@@ -10,4 +10,4 @@ Use Spring (Application Framework) and Hibernate (ORM). All the quizzes should b
 All functions will be made available via RESTFul Web Services (running on localhost) and the view will remain independent of the spring application (communication should be done via AJAX and JSON).
 
 ## How To Run: 
-Create a local database by the name of “quizzer” and then use the android app to save the data accordingly.
+Create a local mySQL database by the name of “quizzer”. Run the Quizzer server (https://github.com/mujtaba-faizi/Quizzer/tree/master/Quizzer%20Server), and then use the android app (https://github.com/mujtaba-faizi/Quizzer/tree/master/Android%20Quizzer%20Client) to view the UI & save the data accordingly.
